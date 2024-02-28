@@ -25,6 +25,43 @@ router.get("/", async (req, res) => {
     }
   });
 
+router.get('/title/:tit',async (req,res) =>{
+    try{
+    const ad = await adsSchema.find({title : req.params.tit})
+    console.log(req.params);
+    res.json(ad);
+    }catch(err){
+      res.status(500).json({ message: err.message });
+
+    }
+
+})
+
+
+router.get('/color/:col',async (req,res) =>{
+    try{
+    const ad = await adsSchema.find({color : req.params.col})
+    console.log(req.params);
+    res.json(ad);
+    }catch(err){
+      res.status(500).json({ message: err.message });
+
+    }
+
+})
+
+
+router.get('/amount/:amont',async (req,res) =>{
+    try{
+    const ad = await adsSchema.find({amount : req.params.amont})
+    console.log(req.params);
+    res.json(ad);
+    }catch(err){
+      res.status(500).json({ message: err.message });
+
+    }
+
+})
 
 
 router.put('/:id', (req, res) => {
