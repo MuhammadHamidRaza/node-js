@@ -11,6 +11,7 @@ router.post('/add', (req, res) => {
     const user = new adsSchema(req.body);
 
     user.save().then(newUser => {
+        res.send(newUser)
         res.send({message: 'User added successfully'})
     }).catch(err => {
         res.status(500).send(err)
