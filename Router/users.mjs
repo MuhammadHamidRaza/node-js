@@ -1,6 +1,5 @@
 import  express  from "express";
 import Users from "../models/usersSchema.mjs";
-import login from "../models/loginSchema.mjs"; 
 
 
 const Router = express.Router();
@@ -34,7 +33,7 @@ Router.post('/login',async (req,res) => {
     try{
         const { email, password } = req.body
         //Step 1: Check if email exists
-        const user = await login.findOne({ email })
+        const user = await Users.findOne({ email })
 
         if(!user){
             res.send({ message: "User not found!" })
